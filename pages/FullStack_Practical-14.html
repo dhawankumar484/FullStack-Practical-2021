@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical-14</title>
+
+<style>
+    body {
+        background-color: grey;
+    }
+    
+    h1{
+        color: white;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 50px;
+    }
+    
+    button{
+        background-color: yellow;
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        margin-left: 480px;
+        margin-right: 50px;
+        font-size: 35px;
+    }
+    
+    #increase-btn{
+        margin-left: 100px;
+    }
+    
+    input{
+        position: relative;
+        top: 2px;
+        left: 45px;
+        width: 50px;
+        background-color: grey;
+        font-size: 40px;
+        color: yellow;
+        border: 0;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>COUNTER</h1>
+
+    <button id="decrease-btn"> - </button>
+    <input type="text" id="counter-value" readonly="" value="0">
+    <button id="increase-btn"> + </button>
+
+
+    <script>
+        var increase = document.getElementById("increase-btn");
+        var decrease = document.getElementById("decrease-btn");
+        var default_value = document.getElementById("counter-value");
+
+        decrease.setAttribute("disabled", "disabled");
+
+
+        increase.addEventListener('click', () => {
+            var valuecount = parseInt(default_value.value) + 1;
+            default_value.value = valuecount;
+
+
+            if (valuecount >= 1) {
+                decrease.removeAttribute("disabled", "disabled");
+            }
+
+        });
+
+
+        decrease.addEventListener('click', () => {
+            var valuecount = parseInt(default_value.value) - 1;
+            default_value.value = valuecount;
+
+
+            if (valuecount == 0) {
+                decrease.setAttribute("disabled", "disabled");
+            }
+
+        });
+    </script>
+</body>
+</html>
